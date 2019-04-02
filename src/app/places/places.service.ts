@@ -10,7 +10,7 @@ export class PlacesService {
       '1',
       'Mariott',
       'In the heart-center of Boradway',
-      'https://www.smartdestinations.com/img/pt/dest/Nyc/att/Nyc_Att_Inside_Broadway_Walking_Tour/gallery/Inside-Broadway-Walking-Tour-1.jpg',
+      'http://mediad.publicbroadcasting.net/p/shared/npr/styles/x_large/nprshared/201805/349610855.jpg',
       149.99
     ),
     new Place(
