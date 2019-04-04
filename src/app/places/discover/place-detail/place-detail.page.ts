@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController, ModalController } from '@ionic/angular';
+import {
+  NavController,
+  ModalController,
+  ActionSheetController
+} from '@ionic/angular';
 
 import { PlacesService } from '../../places.service';
 import { Place } from '../../place.model';
@@ -18,7 +22,8 @@ export class PlaceDetailPage implements OnInit {
     private navCtrl: NavController,
     private route: ActivatedRoute,
     private placesService: PlacesService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private actionSheetCtrl: ActionSheetController
   ) {}
 
   ngOnInit() {
@@ -35,6 +40,33 @@ export class PlaceDetailPage implements OnInit {
     // this.router.navigateByUrl('/places/tabs/discover'); // next page animation
     // this.navCtrl.navigateBack('/places/tabs/discover'); // back page animation
     // this.navCtrl.pop();
+    const actionSheetEl = await this.actionSheetCtrl.create({
+      header: 'Choose an action',
+      buttons: [
+        {
+          text: 'Select Date',
+          handler: () => {
+            this.openBookingModel('select');
+          }
+        },
+        {
+          text: 'Random Date',
+          handler: () => {
+            this.openBookingModel('random');
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'destructive'
+        }
+      ]
+    });
+    actionSheetEl.present();
+  }
+
+  async openBookingModel(mode: 'select' | 'random') {
+    console.log('mode', mode);
+
     const modalEl = await this.modalCtrl.create({
       component: CreateBookingComponent,
       componentProps: { selectedPlace: this.place }
@@ -42,11 +74,5 @@ export class PlaceDetailPage implements OnInit {
     modalEl.present();
     const resultData = await modalEl.onDidDismiss();
     console.log(resultData);
-    // .then(resultData => {
-    //   console.log(resultData.data, resultData.role);
-    //   if (resultData.role === 'confirm') {
-    //     console.log('BOOKED!');
-    //   }
-    // });
   }
 }
