@@ -1,0 +1,14 @@
+.emul-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.ios-emulator,
+.android-emulator {
+  height: 600px;
+}
+
+.web-emulator {
+  height: 600px;
+  width: 800px;
+}

@@ -1,0 +1,34 @@
+<!-- <ionlab-device-frame id="device-ios" class="hydrated"></ionlab-device-frame> -->
+<ion-content padding>
+  <div class="emul-container">
+    <h2><i class="icon ion-social-apple"></i>Web / Desktop</h2>
+    <div class="frame-container">
+      <div class="statusbar"></div>
+      <iframe
+        src="http://localhost:8100"
+        allow="geolocation; microphone; camera; midi; encrypted-media"
+        class="web-emulator"
+      ></iframe>
+    </div>
+
+    <h2><i class="icon ion-social-apple"></i>iOS</h2>
+    <div class="frame-container">
+      <div class="statusbar"></div>
+      <iframe
+        src="http://localhost:8100?ionic%3Amode=ios&amp;ionic%3ApersistConfig=true&amp;ionic%3A_forceStatusbarPadding=true"
+        allow="geolocation; microphone; camera; midi; encrypted-media"
+        class="ios-emulator"
+      ></iframe>
+    </div>
+
+    <h2><i class="icon ion-social-apple"></i>Android</h2>
+    <div class="frame-container">
+      <div class="statusbar"></div>
+      <iframe
+        src="http://localhost:8100?ionic%3Amode=md&amp;ionic%3ApersistConfig=true&amp;ionic%3A_forceStatusbarPadding=true"
+        allow="geolocation; microphone; camera; midi; encrypted-media"
+        class="android-emulator"
+      ></iframe>
+    </div>
+  </div>
+</ion-content>
